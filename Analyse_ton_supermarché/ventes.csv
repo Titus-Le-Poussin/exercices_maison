@@ -1,4 +1,4 @@
-Produit,Catégorie,Quantité,Prix_unitaire,Date
+Produit,Categorie,Quantite,Prix_unitaire,Date
 Pomme,Fruit,10,0.5,2024-04-01
 Banane,Fruit,5,0.3,2024-04-02
 Lait,Laitier,8,1.2,2024-04-03
