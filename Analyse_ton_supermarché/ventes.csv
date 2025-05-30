@@ -4,10 +4,11 @@ Banane,Fruit,5,0.3,2024-04-02
 Lait,Laitier,8,1.2,2024-04-03
 Pain,Boulangerie,6,0.8,2024-04-04
 Yaourt,Laitier,12,0.9,2024-04-05
-Pomme,Fruit,4,0.5,2024-04-06
+Pomme,Fruit,4,0.5,2024-04-01
 Pain,Boulangerie,10,0.8,2024-04-07
 Fraises,Fruit,15,1.5,2024-04-08
 Orange,Fruit,7,0.6,2024-04-09
-Javel,Entretiens,3,2.0,2024-04-10
+Javel,Entretiens,3,2.0,2024-04-04
 Patates,Legumes,8,0.4,2024-04-11
 Tomates,Legumes,10,0.7,2024-04-12
+Patates,Legumes,20,0.4,2024-04-07
