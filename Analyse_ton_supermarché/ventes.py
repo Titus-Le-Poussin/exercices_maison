@@ -10,10 +10,8 @@ try:
 
     # Consigne: Afficher le prix total de tous les produits
 
-    df["Total"] = df["Quantite"] * df["Prix_unitaire"]
-    df_all_price = df["Total"].sum()
-
-
+    df["CA"] = df["Quantite"] * df["Prix_unitaire"]
+    df_all_price = df["CA"].sum()
 
     df_trie_price = df.sort_values(by='Prix_unitaire', ascending=False)
 
@@ -21,26 +19,21 @@ try:
     df_trie_quantity = df.sort_values(by='Quantite', ascending=False)
 
     # Consigne: Afficher le jour avec le plus de ventes
-    df_trie_date = df.sort_values(by='Total', ascending=False)
-
-
-
-    # Consigne: Afficher les premières lignes
-
-    #print(df.head(12))   
-    print(df_trie_date.head(12))
+    df_trie_date = df.sort_values(by='CA', ascending=False)
 
     # Consigne : Afficher le chiffre d'affaire par catégorie
-
     df_trie_category = df.sort_values(by='Categorie', ascending=True)
-    #df_trie_category.groupby("")
+    df_price_category = df.groupby('Categorie')['CA'].sum().reset_index()
+    
 
     # les prints
-
+    print(df.head(12))
     print("il y a", len(df), "produits en tout")
     print("Voici le produit le plus cher :", df_trie_price.iloc[0]["Produit"])
     print("Voici le jour avec le plus de ventes : ", df_trie_date.iloc[0]["Date"], "avec le produit", df_trie_date.iloc[0]["Produit"])
     print("Voici le produit le plus vendu:", df_trie_quantity.iloc[0]["Produit"], "avec une quantite de", df_trie_quantity.iloc[0]["Quantite"])
+    print("Voici le chiffre d'affaire par categorie :")
+    print(df_price_category)
 
 
     print("Le prix total de tous les produits est :", df_all_price)
