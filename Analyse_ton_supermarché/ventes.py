@@ -39,5 +39,21 @@ try:
     print("Le prix total de tous les produits est :", df_all_price)
 
 
+
+    plt.figure(figsize=(10, 6))
+    plt.title("Ventes du supermarché")
+    plt.xlabel("Date")
+    plt.ylabel("Chiffre d'Affaires")
+    plt.grid(axis='y')
+    date_formatter = DateFormatter("%d/%m/%Y")
+    plt.gca().xaxis.set_major_formatter(date_formatter)
+    plt.xticks(rotation=45)
+    plt.bar(df_trie_date["Date"], df_trie_date["CA"], color='blue', label="Chiffre d'Affaires")
+    plt.yticks(range(0, int(df_trie_date.max()) + 1))
+    plt.bar(df_trie_date["Date"], df_trie_date["CA"], color='blue', label='Chiffre d\'Affaires')
+    plt.legend()
+    plt.show()
+    plt.tight_layout()
+
 except FileNotFoundError:
     print(f"Le fichier {Dataframe} n'a pas été trouvé.")
