@@ -8,7 +8,7 @@ try:
     df['Date'] = pd.to_datetime(df['Date'])
 
 
-    df_sorted = df.sort_values(by='ip', ascending=True)
+
     df_sorted_by_IP = df.groupby('ip').size()
     print("Nombre d'IP differentes :", len(df_sorted_by_IP))
     print("Voici le nombre de requetes par IP :")
@@ -17,12 +17,13 @@ try:
     suspects = []
     for ip in df_sorted_by_IP.index:
         dates = df[df['ip'] == ip]['Date'].sort_values().tolist()
-        for i in range(len(dates) - 4):
-            if (dates[i + 4] - dates[i]).total_seconds() < 300:
-                suspects.append(ip)
+        for i in range(len(dates) - 5):
+            if (dates[i + 5] - dates[i]).total_seconds() <= 300:
+                suspects.append((ip, dates[i:i+6]))  
                 break
     if suspects:
-        print("IP suspectes (5 requetes en moins de 5 minutes) :", suspects)
+        for ip, timestamps in suspects:
+            print(f"IP suspecte : {ip} avec les timestamps : {timestamps}")
     else:
         print("Aucune IP suspecte trouvee.")
 
